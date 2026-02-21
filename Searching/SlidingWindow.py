@@ -27,4 +27,4 @@ def sliding_max_subarray(arr, k):
     return max_result
 
 my_array = [-1, 2, 5, -7, 6, 8, 7, -100]
-print(fixed_sliding_window(my_array, 3))
+print(sliding_max_subarray(my_array, 3))

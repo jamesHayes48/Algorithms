@@ -26,5 +26,21 @@ def sliding_max_subarray(arr, k):
         max_result = max(max_result, window_sum)
     return max_result
 
+def lengthOfLongestSubstring(s):
+    char_set = set()
+    left = 0
+    max_length = 0
+
+    for right in range(len(s)):
+        while s[right] in char_set:
+            # if character in set, shrink window
+            char_set.remove(s[left])
+            left += 1
+
+        # Add current character in the set and update max length
+        char_set.add(s[right])
+        max_length = max(max_length, right - left + 1)
+    return max_length
+
 my_array = [-1, 2, 5, -7, 6, 8, 7, -100]
 print(sliding_max_subarray(my_array, 3))
